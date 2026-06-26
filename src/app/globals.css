@@ -123,3 +123,21 @@ body {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
+
+/* Custom Mesh Gradients matching the reference image layout precisely */
+.gradient-light-mesh {
+  background-color: var(--arctic-powder);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(217, 232, 226, 0.95) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, rgba(255, 200, 1, 0.45) 0px, transparent 50%),
+    radial-gradient(at 35% 85%, rgba(255, 153, 50, 0.25) 0px, transparent 50%);
+}
+
+.gradient-dark-mesh {
+  background-color: var(--oceanic-noir);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(17, 76, 90, 0.95) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, rgba(255, 153, 50, 0.45) 0px, transparent 60%),
+    radial-gradient(at 35% 90%, rgba(255, 200, 1, 0.25) 0px, transparent 50%);
+}
+

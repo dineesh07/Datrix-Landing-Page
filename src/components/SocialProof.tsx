@@ -33,7 +33,7 @@ export default function SocialProof() {
     <section 
       id="social-proof" 
       aria-labelledby="proof-heading" 
-      className="py-24 bg-oceanic-noir text-arctic-powder relative overflow-hidden"
+      className="py-24 gradient-dark-mesh text-arctic-powder relative overflow-hidden"
     >
       {/* Background Accent Gradients */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-nocturnal/20 rounded-full blur-[120px] pointer-events-none" />

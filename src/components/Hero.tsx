@@ -5,7 +5,7 @@ export default function Hero() {
     <section 
       id="hero" 
       aria-labelledby="hero-heading" 
-      className="relative flex flex-col items-center justify-center min-h-[85vh] text-center px-4 py-20 overflow-hidden bg-gradient-to-b from-mystic-mint/30 via-arctic-powder to-arctic-powder"
+      className="relative flex flex-col items-center justify-center min-h-[85vh] text-center px-4 py-20 overflow-hidden gradient-light-mesh"
     >
       {/* Decorative gradient blur in background */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-forsythia/20 to-deep-saffron/20 rounded-full blur-3xl -z-10 pointer-events-none" />
