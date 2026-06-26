@@ -39,14 +39,16 @@ export default function Accordion({ activeIndex, setActiveIndex }: AccordionProp
               
               {/* Chevron Icon */}
               <svg 
-                className={`w-5 h-5 text-nocturnal/60 transition-transform duration-layout ${isOpen ? 'rotate-180 text-deep-saffron' : ''}`}
-                fill="none" 
+                className={`w-5 h-5 transition-transform duration-layout ${isOpen ? 'rotate-180 text-deep-saffron' : 'text-nocturnal/60'}`}
                 viewBox="0 0 24 24" 
+                fill="none"
                 stroke="currentColor" 
-                strokeWidth="2"
+                strokeWidth="1.5"
+                strokeLinecap="round" 
+                strokeLinejoin="round"
                 aria-hidden="true"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                <path d="m19.5 8.25l-7.5 7.5l-7.5-7.5" />
               </svg>
             </button>
 
