@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-heading",
   weight: ["400", "500", "600", "700"],
@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.variable} ${inter.variable} antialiased`}
+        className={`${jetbrainsMono.variable} ${inter.variable} antialiased`}
       >
         {children}
       </body>
