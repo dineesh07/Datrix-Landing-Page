@@ -15,8 +15,8 @@
 }
 
 body {
-  color: var(--nocturnal-exp);
-  background-color: var(--arctic-powder);
+  color: var(--arctic-powder);
+  background-color: var(--oceanic-noir);
   font-family: var(--font-body), sans-serif;
   overflow-x: hidden;
 }
@@ -26,14 +26,14 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--arctic-powder);
+  background: var(--oceanic-noir);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--mystic-mint);
+  background: var(--nocturnal-exp);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--nocturnal-exp);
+  background: var(--mystic-mint);
 }
 
 /* Entry Animations */
@@ -94,9 +94,9 @@ body {
 
 /* Glassmorphism utility */
 .glass-panel {
-  background: rgba(241, 246, 244, 0.7);
+  background: rgba(23, 43, 54, 0.7);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(217, 232, 226, 0.5);
+  border: 1px solid rgba(217, 232, 226, 0.1);
 }
 
 /* Premium micro-interactions for links */

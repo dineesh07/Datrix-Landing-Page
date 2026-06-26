@@ -60,19 +60,19 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
         return (
           <div
             key={feature.index}
-            className={`group relative p-8 rounded-2xl border transition-all duration-layout flex flex-col justify-between overflow-hidden bg-arctic-powder ${
+            className={`group relative p-8 rounded-2xl border transition-all duration-layout flex flex-col justify-between overflow-hidden bg-nocturnal/15 ${
               feature.span === 'wide' ? 'md:col-span-2' : 'md:col-span-1'
             } ${
               isHovered 
-                ? 'border-deep-saffron shadow-lg shadow-deep-saffron/5 scale-[1.01]' 
-                : 'border-mystic-mint/80 hover:border-nocturnal/20'
+                ? 'border-forsythia/40 shadow-lg shadow-forsythia/5 scale-[1.01]' 
+                : 'border-mystic-mint/10'
             }`}
             onMouseEnter={() => setActiveHoverIndex(feature.index)}
             onMouseLeave={() => setActiveHoverIndex(null)}
           >
             {/* Ambient Background Accent on Hover */}
             <div 
-              className={`absolute top-0 right-0 w-[200px] h-[200px] bg-gradient-to-bl from-forsythia/10 to-transparent rounded-full blur-[60px] pointer-events-none transition-opacity duration-layout ${
+              className={`absolute top-0 right-0 w-[200px] h-[200px] bg-gradient-to-bl from-forsythia/5 to-transparent rounded-full blur-[60px] pointer-events-none transition-opacity duration-layout ${
                 isHovered ? 'opacity-100' : 'opacity-0'
               }`}
             />
@@ -83,26 +83,26 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
                 <div 
                   className={`p-3.5 rounded-xl border transition-colors duration-micro ${
                     isHovered 
-                      ? 'bg-nocturnal text-forsythia border-nocturnal' 
-                      : 'bg-mystic-mint/30 text-nocturnal border-mystic-mint/60'
+                      ? 'bg-forsythia text-oceanic-noir border-forsythia' 
+                      : 'bg-mystic-mint/5 text-mystic-mint border-mystic-mint/10'
                   }`}
                 >
                   <FeatureIcon name={feature.icon} className="w-6 h-6" />
                 </div>
 
                 {feature.badge && (
-                  <span className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full bg-nocturnal/5 text-nocturnal border border-nocturnal/5">
+                  <span className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full bg-mystic-mint/10 text-mystic-mint border border-mystic-mint/20">
                     {feature.badge}
                   </span>
                 )}
               </div>
 
               {/* Title & Description */}
-              <h3 className="text-xl font-bold font-heading text-nocturnal mb-3 group-hover:text-deep-saffron transition-colors duration-micro">
+              <h3 className="text-xl font-bold font-heading text-arctic-powder mb-3 group-hover:text-deep-saffron transition-colors duration-micro">
                 {feature.title}
               </h3>
               
-              <p className="text-sm leading-relaxed text-nocturnal/70 font-body">
+              <p className="text-sm leading-relaxed text-mystic-mint/75 font-body">
                 {feature.description}
               </p>
             </div>
@@ -119,21 +119,21 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
 
       {/* Row 3 - Column 3 Stats/CTA Bento Cell */}
       <div 
-        className="group relative p-8 rounded-2xl border border-mystic-mint/80 bg-nocturnal text-arctic-powder flex flex-col justify-between md:col-span-1 overflow-hidden"
+        className="group relative p-8 rounded-2xl border border-mystic-mint/10 bg-nocturnal/25 text-arctic-powder flex flex-col justify-between md:col-span-1 overflow-hidden"
       >
-        <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-deep-saffron/10 rounded-full blur-[50px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-deep-saffron/5 rounded-full blur-[50px] pointer-events-none" />
         
         <div>
-          <div className="p-3.5 rounded-xl bg-arctic-powder/10 text-forsythia border border-arctic-powder/10 w-fit mb-8">
+          <div className="p-3.5 rounded-xl bg-mystic-mint/5 text-forsythia border border-mystic-mint/10 w-fit mb-8">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
             </svg>
           </div>
           
-          <h3 className="text-xl font-bold font-heading mb-3">
+          <h3 className="text-xl font-bold font-heading text-arctic-powder mb-3">
             Developer Sandbox
           </h3>
-          <p className="text-sm leading-relaxed text-mystic-mint/80 font-body">
+          <p className="text-sm leading-relaxed text-mystic-mint/70 font-body">
             Spin up a secure test environment locally. Execute logic gates, mock API connections, and run data stream sandboxes.
           </p>
         </div>

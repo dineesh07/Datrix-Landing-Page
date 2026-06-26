@@ -6,9 +6,9 @@ import PricingSection from '@/components/Pricing/PricingSection';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-arctic-powder selection:bg-forsythia/30">
+    <div className="min-h-screen bg-oceanic-noir selection:bg-forsythia/30">
       {/* Navigation Header */}
-      <header role="banner" className="sticky top-0 z-50 glass-panel border-b border-mystic-mint/30 w-full transition-all duration-layout">
+      <header role="banner" className="sticky top-0 z-50 glass-panel border-b border-mystic-mint/10 w-full transition-all duration-layout">
         <nav aria-label="Main navigation" className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo */}
           <a href="/" aria-label="Datrix home" className="flex items-center gap-2.5 group">
@@ -17,13 +17,13 @@ export default function Home() {
                 <path d="M8.372 1.349a.75.75 0 0 0-.744 0l-4.81 2.748L8 7.131l5.182-3.034zM14 5.357L8.75 8.43v6.005l4.872-2.784A.75.75 0 0 0 14 11zm-6.75 9.078V8.43L2 5.357V11c0 .27.144.518.378.651z" />
               </svg>
             </div>
-            <span className="font-heading font-bold text-xl tracking-wider text-nocturnal">
+            <span className="font-heading font-bold text-xl tracking-wider text-arctic-powder">
               DATRIX
             </span>
           </a>
 
           {/* Links (Desktop) */}
-          <ul role="list" className="hidden md:flex items-center gap-10 text-sm font-semibold text-nocturnal/80">
+          <ul role="list" className="hidden md:flex items-center gap-10 text-sm font-semibold text-mystic-mint/80">
             <li>
               <a href="#features" className="nav-link">Features</a>
             </li>
