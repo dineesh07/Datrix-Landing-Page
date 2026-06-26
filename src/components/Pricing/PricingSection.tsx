@@ -196,10 +196,10 @@ export default function PricingSection() {
             return (
               <div
                 key={tier.id}
-                className={`relative flex flex-col justify-between p-8 rounded-3xl border transition-all duration-micro glass-panel group ${
+                className={`relative flex flex-col justify-between p-8 rounded-3xl border transition-all duration-micro glass-panel group card-glow ${
                   tier.highlight 
-                    ? 'border-deep-saffron shadow-xl scale-[1.02] z-10 bg-nocturnal/25' 
-                    : 'border-mystic-mint/10 hover:border-forsythia/30'
+                    ? 'border-deep-saffron scale-[1.02] z-10 bg-nocturnal/25 card-glow-amber-static' 
+                    : 'border-mystic-mint/10 card-glow-amber'
                 }`}
               >
                 {/* Top-left Ambient Glowing Background inside card */}

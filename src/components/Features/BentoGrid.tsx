@@ -65,11 +65,11 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
         return (
           <div
             key={feature.index}
-            className={`group relative p-8 rounded-2xl border transition-all duration-layout flex flex-col justify-between overflow-hidden glass-panel min-h-[320px] ${
+            className={`group relative p-8 rounded-2xl border transition-all duration-layout flex flex-col justify-between overflow-hidden glass-panel min-h-[320px] card-glow card-glow-saffron ${
               feature.span === 'wide' ? 'md:col-span-2' : 'md:col-span-1'
             } ${
               isHovered 
-                ? 'border-forsythia/40 shadow-lg shadow-forsythia/5 scale-[1.01]' 
+                ? 'scale-[1.01]' 
                 : 'border-mystic-mint/10'
             }`}
             onMouseEnter={() => setActiveHoverIndex(feature.index)}
@@ -132,7 +132,7 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
 
       {/* Row 3 - Column 3 Stats/CTA Bento Cell */}
       <div 
-        className="group relative p-8 rounded-2xl border border-mystic-mint/10 glass-panel text-arctic-powder flex flex-col justify-between md:col-span-1 overflow-hidden min-h-[320px]"
+        className="group relative p-8 rounded-2xl border border-mystic-mint/10 glass-panel text-arctic-powder flex flex-col justify-between md:col-span-1 overflow-hidden min-h-[320px] card-glow card-glow-saffron"
       >
         <div className="hover-ellipse group-hover:opacity-100" />
         <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-deep-saffron/5 rounded-full blur-[50px] pointer-events-none" />
