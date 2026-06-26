@@ -118,13 +118,12 @@ body {
 .armory-btn-icon {
   width: 36px;
   height: 36px;
-  background: var(--oceanic-noir);
+  background: transparent;
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-              background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
               color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   order: -1;
 }
@@ -143,7 +142,6 @@ body {
 
 .armory-btn:hover .armory-btn-icon {
   transform: translateX(170px);
-  background: var(--arctic-powder);
   color: var(--oceanic-noir);
 }
 
@@ -270,27 +268,8 @@ body {
   position: relative;
   overflow: hidden;
   width: 100%;
-}
-
-.carousel-container::before,
-.carousel-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 150px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.carousel-container::before {
-  left: 0;
-  background: linear-gradient(to right, var(--oceanic-noir) 0%, transparent 100%);
-}
-
-.carousel-container::after {
-  right: 0;
-  background: linear-gradient(to left, var(--oceanic-noir) 0%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 /* Vertical Scrolling Testimonials Columns */

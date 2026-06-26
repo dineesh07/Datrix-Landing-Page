@@ -7,51 +7,55 @@ import { getPrice, Tier, Cycle, Currency } from '@/lib/pricing.config';
 export const PRICING_TIERS = [
   {
     id: 'starter' as Tier,
-    name: 'Starter',
-    tagline: 'For individuals and small teams getting started.',
+    name: 'Free Plan',
+    tagline: 'For beginners to explore our platform and start their automation journey.',
     highlight: false,
     badge: null,
+    iconColor: 'from-blue-500 to-indigo-600 shadow-blue-500/30',
+    radialGlow: 'from-blue-500/10',
     features: [
-      'Up to 500K events/month',
-      '5 active workflows',
-      '10 connectors',
-      'Community support',
-      'Basic analytics dashboard',
+      'Track up to 5 stocks',
+      'Access to real-time stock prices',
+      'Mobile access for tracking on-the-go',
+      'Basic investment insights',
+      'Limited watchlist management',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Start for Free',
   },
   {
     id: 'pro' as Tier,
-    name: 'Pro',
-    tagline: 'For growing teams that need power and speed.',
+    name: 'Pro Plan',
+    tagline: 'For active investors who want advanced tools to grow their portfolio.',
     highlight: true,
-    badge: '⚡ Most Popular',
+    badge: '★ POPULAR',
+    iconColor: 'from-amber-400 to-orange-500 shadow-orange-500/30',
+    radialGlow: 'from-orange-500/10',
     features: [
-      'Up to 10M events/month',
-      'Unlimited workflows',
-      '50 connectors',
-      'Priority email support',
-      'Advanced analytics + alerts',
-      'Team collaboration tools',
+      'Track unlimited stocks',
+      'Advanced analytics and perform',
+      'Custom alerts for price movements',
+      'Expert-curated stock',
+      'Priority support assistance',
+      'Export data to CSV/PDF',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Start Free 7 Days Trial',
   },
   {
     id: 'enterprise' as Tier,
-    name: 'Enterprise',
-    tagline: 'For orgs that need unlimited scale and compliance.',
+    name: 'Advance Plan',
+    tagline: 'For institutions or high-net-worth individuals seeking tailored solutions.',
     highlight: false,
-    badge: '🏢 Custom Pricing',
+    badge: null,
+    iconColor: 'from-green-500 to-emerald-600 shadow-green-500/30',
+    radialGlow: 'from-emerald-500/10',
     features: [
-      'Unlimited events',
-      'Unlimited workflows',
-      '200+ connectors',
-      'Dedicated support + SLA',
-      'SOC 2 audit logs',
-      'Custom SSO / SAML',
-      'On-prem deployment option',
+      'Dedicated account manager',
+      'Customizable investment tools',
+      'Integration with third-party',
+      'Advanced AI-driven insights',
+      'Team collaboration tools',
     ],
-    cta: 'Contact Sales',
+    cta: 'Contact Us',
   },
 ];
 
@@ -70,8 +74,12 @@ export default function PricingSection() {
 
     Object.entries(priceRefs.current).forEach(([tier, ref]) => {
       if (ref) {
-        const calculated = getPrice(tier as Tier, newCycle, newCurrency);
-        ref.textContent = calculated.display;
+        if (tier === 'enterprise') {
+          ref.textContent = 'Custom';
+        } else {
+          const calculated = getPrice(tier as Tier, newCycle, newCurrency);
+          ref.textContent = calculated.display;
+        }
       }
     });
   }, []);
@@ -160,7 +168,7 @@ export default function PricingSection() {
               <div className="relative w-10 h-6 bg-nocturnal rounded-full transition-colors duration-layout">
                 {/* Thumb */}
                 <div 
-                  className="absolute top-1 left-1 w-4 h-4 bg-forsythia rounded-full transition-transform duration-layout"
+                   className="absolute top-1 left-1 w-4 h-4 bg-forsythia rounded-full transition-transform duration-layout"
                   style={{
                     transform: isAnnual ? 'translateX(16px)' : 'none'
                   }}
@@ -179,77 +187,100 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch mb-12">
           {PRICING_TIERS.map((tier) => {
             const initialPrice = getPrice(tier.id, isAnnual ? 'annual' : 'monthly', currency);
+            const isCustom = tier.id === 'enterprise';
+            const priceVal = isCustom ? 'Custom' : initialPrice.display;
+            
             return (
               <div
                 key={tier.id}
-                className={`relative flex flex-col justify-between p-8 rounded-2xl border transition-all duration-micro glass-panel group overflow-hidden ${
+                className={`relative flex flex-col justify-between p-8 rounded-3xl border transition-all duration-micro glass-panel group ${
                   tier.highlight 
-                    ? 'border-deep-saffron shadow-xl scale-[1.03] z-10' 
+                    ? 'border-deep-saffron shadow-xl scale-[1.02] z-10 bg-nocturnal/25' 
                     : 'border-mystic-mint/10 hover:border-forsythia/30'
                 }`}
               >
+                {/* Top-left Ambient Glowing Background inside card */}
+                <div className={`absolute top-0 left-0 w-64 h-64 bg-gradient-to-br ${tier.radialGlow} to-transparent rounded-full blur-[80px] pointer-events-none opacity-40`} />
+
                 {/* Glow Overlay */}
                 <div className="hover-ellipse group-hover:opacity-100" />
 
-                {/* Visual Highlight Badge */}
+                {/* Top Right Popular Badge inside card to match screenshot */}
                 {tier.badge && (
-                  <span className="absolute -top-3.5 left-8 px-4 py-1 text-[10px] font-bold tracking-widest uppercase rounded-full bg-deep-saffron text-arctic-powder shadow-sm">
+                  <span className="absolute top-6 right-6 flex items-center gap-1 px-3 py-1 rounded-full text-[9px] font-heading font-bold uppercase tracking-wider bg-mystic-mint/10 text-arctic-powder border border-mystic-mint/15 shadow-sm">
                     {tier.badge}
                   </span>
                 )}
 
-                <div>
+                <div className="relative z-10 text-left">
+                  {/* Glowing Icon Square Container */}
+                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${tier.iconColor} flex items-center justify-center shadow-md mb-6 relative`}>
+                    <div className="absolute inset-0 rounded-xl blur-sm bg-inherit opacity-70" />
+                    <div className="w-4 h-4 rounded bg-white/25 relative z-10" />
+                  </div>
+
                   <h3 className="text-xl font-bold font-heading text-arctic-powder mb-2">
                     {tier.name}
                   </h3>
-                  <p className="text-xs text-mystic-mint/70 font-body min-h-[32px]">
-                    {tier.tagline}
-                  </p>
 
                   {/* Isolated Price Node */}
-                  <div className="my-8 flex items-baseline gap-2">
+                  <div className="my-6 flex items-baseline gap-1.5">
                     <span 
                       ref={(el) => {
                         priceRefs.current[tier.id] = el;
                       }}
                       className="text-4xl sm:text-5xl font-bold font-heading text-arctic-powder tracking-tight"
                     >
-                      {initialPrice.display}
+                      {priceVal}
                     </span>
-                    <span className="text-sm font-medium text-mystic-mint/50 font-body">
-                      / month
-                    </span>
+                    {!isCustom && (
+                      <span className="text-sm font-medium text-mystic-mint/50 font-body">
+                        / month
+                      </span>
+                    )}
                   </div>
 
-                  {/* Feature Checklist */}
-                  <ul role="list" className="space-y-4 border-t border-mystic-mint/10 pt-6">
+                  <p className="text-xs text-mystic-mint/70 font-body leading-relaxed mb-8 min-h-[36px]">
+                    {tier.tagline}
+                  </p>
+
+                  {/* Pricing Tier CTA Button */}
+                  <div className="mb-8">
+                    <a
+                      href="#pricing"
+                      className={`block w-full py-3.5 rounded-xl text-center font-semibold text-sm transition-all duration-micro ${
+                        tier.highlight
+                          ? 'bg-white text-black hover:bg-arctic-powder shadow-lg shadow-white/5'
+                          : 'bg-mystic-mint/5 border border-mystic-mint/15 text-arctic-powder hover:bg-mystic-mint/10'
+                      }`}
+                    >
+                      {tier.cta}
+                    </a>
+                  </div>
+
+                  {/* Stand Out Features Separator */}
+                  <div className="flex items-center gap-3 my-6">
+                    <div className="h-px bg-mystic-mint/10 flex-grow" />
+                    <span className="text-[9px] font-heading font-bold uppercase tracking-widest text-mystic-mint/30 shrink-0">STAND OUT FEATURES</span>
+                    <div className="h-px bg-mystic-mint/10 flex-grow" />
+                  </div>
+
+                  {/* Feature List with Custom Bullet Icons */}
+                  <ul role="list" className="space-y-4">
                     {tier.features.map((feature, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <svg className="w-5 h-5 text-deep-saffron shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      <li key={index} className="flex items-center gap-3">
+                        <svg className="w-4 h-4 text-mystic-mint/40 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
                         </svg>
-                        <span className="text-sm text-mystic-mint/80 font-body leading-tight">
+                        <span className="text-xs text-mystic-mint/75 font-body leading-tight">
                           {feature}
                         </span>
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="mt-10">
-                  <a
-                    href="#pricing"
-                    className={`block w-full py-4 rounded-xl text-center font-semibold text-sm transition-all duration-micro ${
-                      tier.highlight
-                        ? 'btn-primary'
-                        : 'btn-secondary border border-mystic-mint/20 text-mystic-mint hover:bg-mystic-mint/10 hover:border-mystic-mint/50'
-                    }`}
-                  >
-                    {tier.cta}
-                  </a>
                 </div>
 
               </div>
@@ -259,7 +290,7 @@ export default function PricingSection() {
 
         {/* Bottom Trust Signal */}
         <p className="text-center text-xs text-mystic-mint/55 font-body mt-8">
-          All plans include: 14-day free trial &middot; No setup fees &middot; Cancel anytime
+          Start your journey risk free &mdash; No credit card needed
         </p>
 
       </div>

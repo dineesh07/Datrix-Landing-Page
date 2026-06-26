@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import SocialProof from '@/components/SocialProof';
 import FeaturesSection from '@/components/Features/FeaturesSection';
 import PricingSection from '@/components/Pricing/PricingSection';
+import DatrixLogo from '@/components/DatrixLogo';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('hero');
@@ -38,15 +39,8 @@ export default function Home() {
       <header role="banner" className="floating-nav">
         <nav aria-label="Main navigation" className="w-full flex items-center justify-between">
           {/* Logo */}
-          <a href="/" aria-label="Datrix home" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-full bg-oceanic-noir border border-arctic-powder/15 flex items-center justify-center shadow-md shadow-arctic-powder/5 group-hover:scale-105 transition-transform duration-micro">
-              <svg className="w-5 h-5 text-arctic-powder" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M8.372 1.349a.75.75 0 0 0-.744 0l-4.81 2.748L8 7.131l5.182-3.034zM14 5.357L8.75 8.43v6.005l4.872-2.784A.75.75 0 0 0 14 11zm-6.75 9.078V8.43L2 5.357V11c0 .27.144.518.378.651z" />
-              </svg>
-            </div>
-            <span className="font-heading font-bold text-base tracking-wider text-arctic-powder">
-              DATRIX
-            </span>
+          <a href="/" aria-label="Datrix home" className="flex items-center group transition-opacity duration-150 hover:opacity-80">
+            <DatrixLogo height={28} color="var(--arctic-powder)" />
           </a>
 
           {/* Links (Desktop) */}
@@ -55,13 +49,10 @@ export default function Home() {
               <a href="#features" className={`nav-link ${activeSection === 'features' ? 'active' : ''}`}>Features</a>
             </li>
             <li>
+              <a href="#social-proof" className={`nav-link ${activeSection === 'social-proof' ? 'active' : ''}`}>Testimonials</a>
+            </li>
+            <li>
               <a href="#pricing" className={`nav-link ${activeSection === 'pricing' ? 'active' : ''}`}>Pricing</a>
-            </li>
-            <li>
-              <a href="#docs" className="nav-link">Docs</a>
-            </li>
-            <li>
-              <a href="#signin" className="nav-link">Sign In</a>
             </li>
           </ul>
 
@@ -90,16 +81,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand Info */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-forsythia to-deep-saffron flex items-center justify-center">
-                <svg className="w-4 h-4 text-oceanic-noir" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M8.372 1.349a.75.75 0 0 0-.744 0l-4.81 2.748L8 7.131l5.182-3.034zM14 5.357L8.75 8.43v6.005l4.872-2.784A.75.75 0 0 0 14 11zm-6.75 9.078V8.43L2 5.357V11c0 .27.144.518.378.651z" />
-                </svg>
-              </div>
-              <span className="font-heading font-bold text-lg tracking-wider text-arctic-powder">
-                DATRIX
-              </span>
-            </div>
+            <DatrixLogo height={24} color="var(--arctic-powder)" />
             <p className="text-xs sm:text-sm font-body">
               Where data meets intelligence.
             </p>

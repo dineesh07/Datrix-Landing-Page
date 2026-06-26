@@ -35,7 +35,15 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: {
     canonical: 'https://datrix.vercel.app',
-  }
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico',  type: 'image/x-icon' },
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({

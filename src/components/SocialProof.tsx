@@ -156,26 +156,94 @@ export default function SocialProof() {
             <div className="carousel-track">
               {/* First Track Set */}
               <div className="flex items-center gap-20">
-                {['AETNA', 'CIGNA', 'ANTHEM', 'CVS PHARMACY', 'UNITED HEALTHCARE', 'VERTEX LABS', 'FLOWSTATE'].map((name, i) => (
-                  <div key={`logo-1-${i}`} className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
-                    <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                    {name}
-                  </div>
-                ))}
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                  aetna
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-deep-saffron shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3a9 9 0 00-9 9v1a3 3 0 003 3h1.5a1.5 1.5 0 011.5 1.5V19a3 3 0 003 3h2a3 3 0 003-3v-1.5a1.5 1.5 0 011.5-1.5H20a3 3 0 003-3v-1a9 9 0 00-9-9z"/>
+                  </svg>
+                  cigna
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-mystic-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                  Anthem
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 10.5h-5.5V5h-3v5.5H5v3h5.5V19h3v-5.5H19v-3z"/>
+                  </svg>
+                  CVS pharmacy
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-deep-saffron shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 5v6c0 5.25 3.8 10.12 10 11.5 6.2-1.38 10-6.25 10-11.5V5L12 2z"/>
+                  </svg>
+                  UnitedHealthcare
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-mystic-mint shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                  </svg>
+                  VERTEX LABS
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                  </svg>
+                  FLOWSTATE
+                </div>
               </div>
 
               {/* Second Track Set */}
               <div className="flex items-center gap-20 ml-20">
-                {['AETNA', 'CIGNA', 'ANTHEM', 'CVS PHARMACY', 'UNITED HEALTHCARE', 'VERTEX LABS', 'FLOWSTATE'].map((name, i) => (
-                  <div key={`logo-2-${i}`} className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
-                    <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
-                    {name}
-                  </div>
-                ))}
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                  aetna
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-deep-saffron shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3a9 9 0 00-9 9v1a3 3 0 003 3h1.5a1.5 1.5 0 011.5 1.5V19a3 3 0 003 3h2a3 3 0 003-3v-1.5a1.5 1.5 0 011.5-1.5H20a3 3 0 003-3v-1a9 9 0 00-9-9z"/>
+                  </svg>
+                  cigna
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-mystic-mint shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                  Anthem
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 10.5h-5.5V5h-3v5.5H5v3h5.5V19h3v-5.5H19v-3z"/>
+                  </svg>
+                  CVS pharmacy
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-deep-saffron shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 5v6c0 5.25 3.8 10.12 10 11.5 6.2-1.38 10-6.25 10-11.5V5L12 2z"/>
+                  </svg>
+                  UnitedHealthcare
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-mystic-mint shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 22h20L12 2z"/>
+                  </svg>
+                  VERTEX LABS
+                </div>
+                <div className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                  <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                  </svg>
+                  FLOWSTATE
+                </div>
               </div>
             </div>
           </div>

@@ -13,12 +13,6 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
         {/* Left Column: Heading, Subtext, and CTA */}
         <div className="lg:col-span-7 flex flex-col items-start text-left">
-          {/* Badge */}
-          <span className="hero-badge inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-[10px] font-semibold tracking-wide uppercase bg-mystic-mint/10 text-mystic-mint mb-8 border border-mystic-mint/20 oem-icon-container cursor-pointer select-none">
-            <span className="oem-icon shrink-0" />
-            Next-Gen AI Automation Platform
-          </span>
-
           {/* H1 Heading */}
           <h1 
             id="hero-heading" 

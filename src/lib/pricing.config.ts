@@ -1,8 +1,8 @@
 // Base rates in USD cents per month
 export const BASE_RATES = {
-  starter:    { monthly: 2900,  annual: 2320  }, // 20% annual discount
-  pro:        { monthly: 7900,  annual: 6320  },
-  enterprise: { monthly: 19900, annual: 15920 },
+  starter:    { monthly: 0,    annual: 0     }, 
+  pro:        { monthly: 8000, annual: 6400  },
+  enterprise: { monthly: 0,    annual: 0     }, 
 };
 
 // Regional tariff multipliers
