@@ -57,10 +57,15 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto px-6">
       {FEATURES.map((feature: Feature) => {
         const isHovered = activeHoverIndex === feature.index;
+        
+        // Split sentence for short/full text swap reveal
+        const sentences = feature.description.split('. ');
+        const shortText = sentences[0] + (sentences.length > 1 ? '.' : '');
+        
         return (
           <div
             key={feature.index}
-            className={`group relative p-8 rounded-2xl border transition-all duration-layout flex flex-col justify-between overflow-hidden bg-nocturnal/15 ${
+            className={`group relative p-8 rounded-2xl border transition-all duration-layout flex flex-col justify-between overflow-hidden glass-panel min-h-[320px] ${
               feature.span === 'wide' ? 'md:col-span-2' : 'md:col-span-1'
             } ${
               isHovered 
@@ -70,6 +75,9 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
             onMouseEnter={() => setActiveHoverIndex(feature.index)}
             onMouseLeave={() => setActiveHoverIndex(null)}
           >
+            {/* Glow Overlay */}
+            <div className="hover-ellipse group-hover:opacity-100" />
+
             {/* Ambient Background Accent on Hover */}
             <div 
               className={`absolute top-0 right-0 w-[200px] h-[200px] bg-gradient-to-bl from-forsythia/5 to-transparent rounded-full blur-[60px] pointer-events-none transition-opacity duration-layout ${
@@ -77,7 +85,7 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
               }`}
             />
 
-            <div>
+            <div className="capability-overlay flex flex-col h-full relative z-10 w-full">
               {/* Card Header (Icon + Badge) */}
               <div className="flex items-center justify-between mb-8">
                 <div 
@@ -102,9 +110,14 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
                 {feature.title}
               </h3>
               
-              <p className="text-sm leading-relaxed text-mystic-mint/75 font-body">
-                {feature.description}
-              </p>
+              <div className="relative overflow-hidden">
+                <p className="text-sm leading-relaxed text-mystic-mint/75 font-body cap-short-text mb-4">
+                  {shortText}
+                </p>
+                <p className="text-sm leading-relaxed text-mystic-mint/90 font-body cap-full-text">
+                  {feature.description}
+                </p>
+              </div>
             </div>
 
             {/* Bottom highlight border line */}
@@ -119,11 +132,12 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
 
       {/* Row 3 - Column 3 Stats/CTA Bento Cell */}
       <div 
-        className="group relative p-8 rounded-2xl border border-mystic-mint/10 bg-nocturnal/25 text-arctic-powder flex flex-col justify-between md:col-span-1 overflow-hidden"
+        className="group relative p-8 rounded-2xl border border-mystic-mint/10 glass-panel text-arctic-powder flex flex-col justify-between md:col-span-1 overflow-hidden min-h-[320px]"
       >
+        <div className="hover-ellipse group-hover:opacity-100" />
         <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-deep-saffron/5 rounded-full blur-[50px] pointer-events-none" />
         
-        <div>
+        <div className="relative z-10">
           <div className="p-3.5 rounded-xl bg-mystic-mint/5 text-forsythia border border-mystic-mint/10 w-fit mb-8">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -140,7 +154,7 @@ export default function BentoGrid({ activeHoverIndex, setActiveHoverIndex }: Ben
 
         <a 
           href="#pricing"
-          className="mt-8 text-xs font-semibold tracking-wider uppercase text-forsythia hover:text-deep-saffron transition-colors duration-micro flex items-center gap-1.5"
+          className="mt-8 text-xs font-semibold tracking-wider uppercase text-forsythia hover:text-deep-saffron transition-colors duration-micro flex items-center gap-1.5 relative z-10"
         >
           Access developer docs
           <span className="group-hover:translate-x-1 transition-transform duration-micro font-bold">&rarr;</span>

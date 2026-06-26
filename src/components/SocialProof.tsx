@@ -1,23 +1,36 @@
 import React from 'react';
 
-export const TESTIMONIALS = [
+interface Testimonial {
+  title: string;
+  label: string;
+  rating: number;
+  quote: string;
+}
+
+export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "Datrix cut our data pipeline build time from 3 weeks to 3 hours. It's the backbone of our entire analytics stack.",
-    name: "Priya Nair",
-    role: "Head of Data Engineering",
-    company: "Zeta Financial",
+    title: "Infrastructure that finally scales",
+    label: "Vertex Labs",
+    rating: 5,
+    quote: "The reliability of Datrix is unmatched. We've migrated our entire neural pipeline to their edge nodes with zero downtime for our users.",
   },
   {
-    quote: "The pricing matrix feature alone saved us hours of spreadsheet work. Datrix just gets enterprise complexity.",
-    name: "Marcus Chen",
-    role: "CTO",
-    company: "Loopline Systems",
+    title: "Saved us months of R&D",
+    label: "FlowState AI",
+    rating: 5,
+    quote: "Instead of building our own agent logic from scratch, we used Datrix. We went from a prototype to a global production launch in weeks.",
   },
   {
-    quote: "We process 50 million events a day through Datrix. It's never missed a beat — and the UI is genuinely beautiful.",
-    name: "Aisha Okonkwo",
-    role: "VP Engineering",
-    company: "Novu Analytics",
+    title: "Precision in every inference",
+    label: "Neural Sync",
+    rating: 5,
+    quote: "The observability tools allow us to monitor agent accuracy in real-time. It has become a vital part of our model evaluation workflow.",
+  },
+  {
+    title: "Enterprise-grade by default",
+    label: "Sentinel Ops",
+    rating: 5,
+    quote: "The node-based builder is a game changer for our team. Even our non-technical stakeholders can now help map out complex agent behaviors.",
   },
 ];
 
@@ -27,6 +40,62 @@ export const STATS = [
   { value: "99.99%", label: "Uptime SLA" },
   { value: "<50ms", label: "Avg. Latency" },
 ];
+
+function TestimonialCard({ t }: { t: Testimonial }) {
+  return (
+    <div className="relative flex rounded-2xl glass-panel border border-mystic-mint/10 hover:border-forsythia/35 transition-all duration-micro overflow-hidden min-h-[360px] group text-left w-full">
+      {/* Glow Overlay */}
+      <div className="hover-ellipse group-hover:opacity-100" />
+      
+      {/* Left Sidebar Label */}
+      <div className="w-12 border-r border-mystic-mint/10 flex flex-col items-center justify-between py-6 bg-mystic-mint/5 shrink-0">
+        <div className="flex flex-col gap-1.5 opacity-30">
+          <div className="w-3 h-0.5 bg-mystic-mint" />
+          <div className="w-3 h-0.5 bg-mystic-mint" />
+          <div className="w-3 h-0.5 bg-mystic-mint" />
+        </div>
+        
+        <span className="vertical-text text-[10px] font-heading font-bold uppercase tracking-widest text-mystic-mint/65">
+          {t.label}
+        </span>
+      </div>
+
+      {/* Main content right side */}
+      <div className="flex-grow p-6 flex flex-col justify-between relative z-10">
+        <div>
+          {/* Card Title */}
+          <h4 className="font-heading font-bold text-base text-arctic-powder mb-6 group-hover:text-deep-saffron transition-colors duration-micro leading-snug">
+            {t.title}
+          </h4>
+
+          {/* Rating */}
+          <div className="mb-4">
+            <span className="text-[9px] font-heading font-semibold uppercase tracking-widest text-mystic-mint/45 block mb-1">
+              RATING
+            </span>
+            <div className="flex gap-0.5 text-forsythia">
+              {Array.from({ length: t.rating }).map((_, i) => (
+                <svg key={i} className="w-3 h-3 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Comment quote text */}
+        <div>
+          <span className="text-[9px] font-heading font-semibold uppercase tracking-widest text-mystic-mint/45 block mb-2">
+            COMMENT
+          </span>
+          <p className="text-xs leading-relaxed text-mystic-mint/75 font-body">
+            {t.quote}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function SocialProof() {
   return (
@@ -41,61 +110,8 @@ export default function SocialProof() {
 
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Logo cloud */}
-        <div className="text-center mb-20">
-          <h2 
-            id="proof-heading" 
-            className="text-sm font-semibold uppercase tracking-widest text-mystic-mint/60 mb-8"
-          >
-            Trusted by 10,000+ data teams across 40 countries
-          </h2>
-          
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20 opacity-70 hover:opacity-100 transition-opacity duration-micro">
-            {/* Logo 1: Zeta */}
-            <div className="flex items-center gap-2 text-arctic-powder font-heading font-bold text-lg tracking-wider">
-              <svg className="w-6 h-6 text-forsythia" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-              ZETA
-            </div>
-
-            {/* Logo 2: Loopline */}
-            <div className="flex items-center gap-2 text-arctic-powder font-heading font-bold text-lg tracking-wider">
-              <svg className="w-6 h-6 text-deep-saffron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-                <path d="M12 6v12M6 12h12"/>
-              </svg>
-              LOOPLINE
-            </div>
-
-            {/* Logo 3: Novu */}
-            <div className="flex items-center gap-2 text-arctic-powder font-heading font-bold text-lg tracking-wider">
-              <svg className="w-6 h-6 text-mystic-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
-              NOVU
-            </div>
-
-            {/* Logo 4: Acme */}
-            <div className="flex items-center gap-2 text-arctic-powder font-heading font-bold text-lg tracking-wider">
-              <svg className="w-6 h-6 text-forsythia" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              </svg>
-              ACME
-            </div>
-
-            {/* Logo 5: Apex */}
-            <div className="flex items-center gap-2 text-arctic-powder font-heading font-bold text-lg tracking-wider">
-              <svg className="w-6 h-6 text-deep-saffron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L2 22h20L12 2z"/>
-              </svg>
-              APEX
-            </div>
-          </div>
-        </div>
-
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center border-t border-b border-mystic-mint/10 py-16 mb-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center border-b border-mystic-mint/10 pb-16 mb-24">
           {STATS.map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center">
               <span className="text-4xl sm:text-5xl font-bold font-heading bg-gradient-to-r from-forsythia to-deep-saffron bg-clip-text text-transparent mb-2">
@@ -108,44 +124,60 @@ export default function SocialProof() {
           ))}
         </div>
 
-        {/* Testimonials Grid */}
-        <div>
-          <div className="text-center mb-16">
-            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-arctic-powder">
-              Loved by Engineers. Trusted by Enterprise.
+        {/* Testimonials Section */}
+        <div className="mb-24">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <h3 className="text-3xl sm:text-4xl font-bold font-heading text-arctic-powder leading-tight">
+              Trusted by the pioneers
             </h3>
-            <p className="text-mystic-mint/60 mt-3 font-body">
-              Read how teams are scaling their operations with Datrix.
+            <p className="text-mystic-mint/60 mt-4 text-sm sm:text-base font-body leading-relaxed">
+              From high-growth startups to enterprise research labs, Datrix is the chosen infrastructure for teams building the next era of AI.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Testimonials Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
             {TESTIMONIALS.map((t, idx) => (
-              <div 
-                key={idx} 
-                className="flex flex-col justify-between p-8 rounded-2xl bg-nocturnal/20 border border-mystic-mint/10 hover:border-forsythia/30 transition-all duration-micro group"
-              >
-                <div>
-                  {/* Quotes Icon */}
-                  <svg className="w-8 h-8 text-forsythia/20 mb-6 group-hover:text-forsythia/40 transition-colors duration-micro" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.154c-2.433.914-4.006 3.636-4.006 5.846h4v10h-9.99z"/>
-                  </svg>
-                  
-                  <p className="text-base text-mystic-mint/90 leading-relaxed italic mb-8 font-body">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                </div>
-                
-                <div className="border-t border-mystic-mint/10 pt-6">
-                  <h4 className="text-sm font-semibold font-heading text-arctic-powder">
-                    {t.name}
-                  </h4>
-                  <p className="text-xs text-mystic-mint/50 font-body mt-1">
-                    {t.role} &middot; <span className="text-deep-saffron font-medium">{t.company}</span>
-                  </p>
-                </div>
-              </div>
+              <TestimonialCard key={idx} t={t} />
             ))}
+          </div>
+        </div>
+
+        {/* Logo Cloud Marquee below Testimonials */}
+        <div className="text-center">
+          <h2 
+            id="proof-heading" 
+            className="text-[10px] font-heading font-semibold uppercase tracking-widest text-mystic-mint/45 mb-8"
+          >
+            Powering mission-critical operations globally
+          </h2>
+          
+          <div className="carousel-container opacity-70 hover:opacity-100 transition-opacity duration-micro">
+            <div className="carousel-track">
+              {/* First Track Set */}
+              <div className="flex items-center gap-20">
+                {['AETNA', 'CIGNA', 'ANTHEM', 'CVS PHARMACY', 'UNITED HEALTHCARE', 'VERTEX LABS', 'FLOWSTATE'].map((name, i) => (
+                  <div key={`logo-1-${i}`} className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                    <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    {name}
+                  </div>
+                ))}
+              </div>
+
+              {/* Second Track Set */}
+              <div className="flex items-center gap-20 ml-20">
+                {['AETNA', 'CIGNA', 'ANTHEM', 'CVS PHARMACY', 'UNITED HEALTHCARE', 'VERTEX LABS', 'FLOWSTATE'].map((name, i) => (
+                  <div key={`logo-2-${i}`} className="flex items-center gap-2.5 text-arctic-powder font-heading font-bold text-base tracking-wider">
+                    <svg className="w-5 h-5 text-forsythia shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    {name}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

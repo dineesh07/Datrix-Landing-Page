@@ -185,12 +185,15 @@ export default function PricingSection() {
             return (
               <div
                 key={tier.id}
-                className={`relative flex flex-col justify-between p-8 rounded-2xl border transition-all duration-micro bg-nocturnal/15 ${
+                className={`relative flex flex-col justify-between p-8 rounded-2xl border transition-all duration-micro glass-panel group overflow-hidden ${
                   tier.highlight 
                     ? 'border-deep-saffron shadow-xl scale-[1.03] z-10' 
                     : 'border-mystic-mint/10 hover:border-forsythia/30'
                 }`}
               >
+                {/* Glow Overlay */}
+                <div className="hover-ellipse group-hover:opacity-100" />
+
                 {/* Visual Highlight Badge */}
                 {tier.badge && (
                   <span className="absolute -top-3.5 left-8 px-4 py-1 text-[10px] font-bold tracking-widest uppercase rounded-full bg-deep-saffron text-arctic-powder shadow-sm">
